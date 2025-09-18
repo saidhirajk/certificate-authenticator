@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+from PIL import Image
 
 # Page configuration
 st.set_page_config(page_title="Certificate Authenticity Checker", layout="centered")
@@ -16,8 +17,14 @@ test_case = st.sidebar.selectbox("🧪 Choose Test Case", ["Both Pass", "Hash Pa
 st.title("📄 CertiChain")
 
 # Step 1: Upload Screen
-st.header("Upload the Certificate/Document")
-uploaded_file = st.file_uploader("Upload Certificate (PDF/JPEG)", type=["pdf", "jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("📄 Upload Certificate Image", type=["png", "jpg", "jpeg"])
+
+if uploaded_file is None:
+    st.info("No file uploaded. Using default sample certificate for demo.")
+    uploaded_file = "temp_uploaded.jpg"
+
+cert_img = Image.open(uploaded_file)
+st.image(cert_img, caption="🎓 Certificate Preview", use_column_width=True)
 
 st.divider()
 
