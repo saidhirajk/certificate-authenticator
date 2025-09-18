@@ -24,7 +24,7 @@ if uploaded_file is None:
     uploaded_file = "temp_uploaded.jpg"
 
 cert_img = Image.open(uploaded_file)
-st.image(cert_img, caption="🎓 Certificate Preview", use_column_width=True)
+st.image(cert_img, caption="🎓 Certificate Preview", use_container_width=True)
 
 st.divider()
 
