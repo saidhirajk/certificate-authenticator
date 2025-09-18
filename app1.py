@@ -17,7 +17,7 @@ test_case = st.sidebar.selectbox("🧪 Choose Test Case", ["Both Pass", "Hash Pa
 st.title("📄 CertiChain")
 
 # Step 1: Upload Screen
-uploaded_file = st.file_uploader("📄 Upload Certificate Image", type=["png", "jpg", "jpeg"])
+uploaded_file = st.file_uploader(title="📄 Upload Certificate Image", type=["png", "jpg", "jpeg"])
 
 if uploaded_file is None:
     st.info("No file uploaded. Using default sample certificate for demo.")
